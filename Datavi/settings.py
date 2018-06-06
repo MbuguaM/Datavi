@@ -82,8 +82,8 @@ DATABASES = {
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'lyser',
-        'USER': 'mbugua',
-        'PASSWORD': 'morem',
+        'USER': 'rose',
+        'PASSWORD': 'justin/',
         'HOST':'',
         'PORT':'5432'
     }
@@ -132,8 +132,8 @@ STATIC_URL = '/static/'
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER':(-.023,36.87),
     'DEFAULT_ZOOM': 5,
-    'MAX_ZOOM': 20, 
-    'MIN_ZOOM':3, 
-    'SCALE':'both', 
+    'MAX_ZOOM': 20,
+    'MIN_ZOOM':3,
+    'SCALE':'both',
     'ATTRIBUTION_PREFIX':'Mbugua.M@DATAV'
 }
