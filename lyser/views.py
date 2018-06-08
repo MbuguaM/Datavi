@@ -6,7 +6,7 @@ from django.http import HttpResponse
 # Create your views here.
 def landing(request):
     """ models displaying the main laning page """
-    return render (request, 'app_temp/landing.html')
+    return render (request, 'app_temp/home.html')
 
 
 def county_data(request):

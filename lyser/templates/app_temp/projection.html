@@ -1,0 +1,22 @@
+{% extends 'app_temp/base.html' %}
+{% load leaflet_tags %}
+{% block content %}
+{{block.super}}
+  <div class = "container" style="margin-top:8%;">
+      <div class = 'row'>
+          <div class = "col-sm-0.5"></div>
+          <div class = "col-md-11">
+              <script type = "text/javascript">
+                function our_layer(map, options){
+                     var data = "{% url 'county_data' %}"
+                    var datasets = new L.geoJSON(data.responseJSON);
+                datasets.addTo(map);
+                }
+              </script>
+              {% leaflet_map 'gis' callback="window.our_layer"%}
+          </div>
+          <div class = "col-sm-0.5"></div>
+      </div>
+  </div>
+
+{% endblock %}

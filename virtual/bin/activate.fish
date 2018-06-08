@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/mbugua/Documents/moringa-school-projects/core/capstone/Datmap/virtual"
+set -gx VIRTUAL_ENV "/home/rose/prodev/Datavi/virtual"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
