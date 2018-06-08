@@ -6,8 +6,9 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    re_path(r'^$', views.landing, name = 'landing'), 
-    re_path(r'^county_data$',views.county_data, name = 'county_data' ), 
+    re_path(r'^$', views.landing, name = 'landing'),
+    re_path(r'^county_data$',views.county_data, name = 'county_data' ),
+    re_path(r'^more_about$',views.more_about, name='more_about')
 ]
 
 if settings.DEBUG:
