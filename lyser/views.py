@@ -21,3 +21,7 @@ def county_data(request):
 def more_about(request):
     """ displaying more inforamtion about us """
     return render(request, 'app_temp/us.html')
+
+def projection(request):
+    """displaying map projection"""
+    return render(request, 'app_temp/projection.html')
