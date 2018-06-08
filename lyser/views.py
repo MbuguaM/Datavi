@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def landing(request):
-    """ models displaying the main laning page """
+    """ models displaying the main landing page """
     return render (request, 'app_temp/home.html')
 
 
@@ -14,3 +14,9 @@ def county_data(request):
     county = serialize('geojson',counties.objects.all())
 
     return HttpResponse(county, content_type = 'json')
+
+
+
+def more_about(request):
+    """ moodels displaying more inforamtion about us """
+    return render(request, 'app_temp/us.html')
