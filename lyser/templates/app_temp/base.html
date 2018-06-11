@@ -1,4 +1,4 @@
-{% load bootstrap4 %}
+{% load bootstrap3 %}
 {% load static %}
 {% load leaflet_tags %}
 <!DOCTYPE html>
@@ -7,23 +7,24 @@
   <meta charset="utf-8">
   {% leaflet_js %}
   {% leaflet_css %}
-
-  {% block styles %}
-    {% bootstrap_css %}    
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-  {% endblock %}
   <style type = 'text/css'>
     #gis {width: 100%;height: 500px;}
 </style>
+  {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Rosarivo" rel="stylesheet">
+  {% endblock %}
+
   <script src = '{% static 'dist/leaflet.ajax.js'%}'></script>
 </head>
 <body>
     {% include 'navbar.html' %}
-    {% block content %} 
-     <p class = "text-center"> A feast for your eyes </p>
+    {% block content %}
+     <!-- <p class = "text-center"> A feast for your eyes </p> -->
 
      {%endblock%}
-   
+
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}

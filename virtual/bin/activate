@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/mbugua/Documents/moringa-school-projects/core/capstone/Datmap/virtual"
+VIRTUAL_ENV="/home/rose/prodev/Datavi/virtual"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
