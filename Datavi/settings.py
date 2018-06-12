@@ -147,3 +147,5 @@ LEAFLET_CONFIG = {
     'SCALE':'both',
     'ATTRIBUTION_PREFIX':'Mbugua.M@DATAV'
 }
+import django_heroku
+django_heroku.settings(locals())
