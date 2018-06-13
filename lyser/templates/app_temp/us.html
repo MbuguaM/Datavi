@@ -2,6 +2,7 @@
 {% load leaflet_tags %}
 {% block content %}
 {% load bootstrap3 %}
+{% load static %}
 {{block.super}}
 <!DOCTYPE html>
 <html>
@@ -9,13 +10,13 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
+  <body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;">
 
     <div class="container">
       <h3 class="text-center" style="font-size:36px; font-family: 'Rosarivo', serif;border-bottom:1px solid #333333;margin-left:300px;margin-right:300px; margin-top:120px;">Who we are</h3>
       <div class="body" style="background-color:#C4C4C4;height:185px;margin-left:150px;margin-right:150px;">
-        <p class="text-center" style="font-family: 'Rosarivo', serif;margin-top:50px;padding-top:20px;">We are Data-X cruew, we create awareness to the society on the effects </p>
-        <p class="text-center" style="font-family: 'Rosarivo', serif;">of corruption to the society and economy of different countries.</p><br>
+        <p class="text-center" style="font-family: 'Rosarivo', serif;margin-top:50px;padding-top:20px;">We at Data-X, provide a platform for all to visualize large datasets in a friendlier way.</p>
+        <p class="text-center" style="font-family: 'Rosarivo', serif;"> Primarily using maps.</p><br>
         <p class="text-center" style="font-family: 'Rosarivo', serif;">After doing our research we found that citizens lack platform to air</p>
         <p class="text-center" style="font-family: 'Rosarivo', serif;">their views on how to fight corruption</p>
       </div>
