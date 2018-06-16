@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import counties
+from .models import counties, WordBorder
 from django.core.serializers import serialize
 from django.http import HttpResponse
 from . import views
@@ -13,9 +13,12 @@ def landing(request):
 def county_data(request):
     """ fetching the county data """
     county = serialize('geojson',counties.objects.all())
+    return HttpResponse(county, content_type = 'json')
 
-    return render(county, content_type = 'json')
-
+def world_borders(request):
+    """ fetching the world borders data"""
+    world_borders = serialize('geojson',WordBorder.objects.all())
+    return HttpResponse(world_borders, content_type = 'json')
 
 
 def more_about(request):

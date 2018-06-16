@@ -15,8 +15,9 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Rosarivo" rel="stylesheet">
   {% endblock %}
-
-  <script src = '{% static 'dist/leaflet.ajax.js'%}'></script>
+  <link rel="stylesheet" type = "text/css" href='{% static 'dist/leaflet.groupedlayercontrol.min.css'%}'>
+  <script type ="text/javascript" src = '{% static 'dist/leaflet.ajax.js'%}'></script>
+  <script type ="text/javascript" src = '{% static 'dist/leaflet.ajax.min2.js'%}'></script>
 </head>
 <body>
     {% include 'navbar.html' %}
