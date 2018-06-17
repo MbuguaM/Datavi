@@ -1,22 +1,37 @@
 {% extends 'app_temp/base.html' %}
 {% load leaflet_tags %}
 {% block content %}
+{% load static %}
 {{block.super}}
-  <div class = "container" style="margin-top:8%;">
-      <div class = 'row'>
-          <div class = "col-sm-0.5"></div>
-          <div class = "col-md-11">
-              <script type = "text/javascript">
-                function our_layer(map, options){
-                     var data = "{% url 'county_data' %}"
-                    var datasets = new L.geoJSON(data.responseJSON);
-                datasets.addTo(map);
-                }
-              </script>
-              {% leaflet_map 'gis' callback="window.our_layer"%}
-          </div>
-          <div class = "col-sm-0.5"></div>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;">
+
+  <div class="container" style="margin-top:8%;">
+    <div class='row'>
+      <div class="col-sm-0.5"></div>
+      <div class="col-md-11">
+        <script type="text/javascript">
+          function our_layer(map, options) {
+            var data = "{% url 'county_data' %}"
+            var datasets = new L.geoJSON(data.responseJSON);
+            datasets.addTo(map);
+          }
+        </script>
+        {% leaflet_map 'gis' callback="window.our_layer"%}
       </div>
+      <div class="col-sm-0.5"></div>
+    </div>
   </div>
 
-{% endblock %}
+  {% endblock %}
+  <!DOCTYPE html>
+</body>
+
+</html>

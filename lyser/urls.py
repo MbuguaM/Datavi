@@ -9,7 +9,8 @@ urlpatterns = [
     re_path(r'^$', views.landing, name = 'landing'),
     re_path(r'^county_data$',views.county_data, name = 'county_data' ),
     re_path(r'^more_about$',views.more_about, name='more_about'),
-    re_path(r'^projection$',views.projection, name='projection')
+    re_path(r'^projection$',views.projection, name='projection'),
+    re_path(r'^your_projection$', views.your_projection, name='your_projection')
 ]
 
 if settings.DEBUG:

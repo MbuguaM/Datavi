@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -83,8 +84,8 @@ DATABASES = {
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'lyser',
-        'USER': 'mbugua',
-        'PASSWORD': 'morem',
+        'USER': 'rose',
+        'PASSWORD': 'justin/',
         'HOST':'',
         'PORT':'5432'
     }
@@ -147,3 +148,12 @@ LEAFLET_CONFIG = {
     'SCALE':'both',
     'ATTRIBUTION_PREFIX':'Mbugua.M@DATAV'
 }
+ # email configurations
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+import django_heroku
+django_heroku.settings(locals())
