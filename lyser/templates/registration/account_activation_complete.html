@@ -8,13 +8,32 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
+  {% comment %} <bodystyle="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;">
     
-  <div class="alert alert-success success-activation">
-    <img src="{% static 'images/checked.png' %}" class="img-responsive" alt="Image">
-    <p>Please confirm your email address to complete the registration.</p>
+  <div class="row justify-content-center "style= 'padding-right:20px;background-color:#C4C4C4; opacity:0.8;'>
+    <p class= 'text-center'>Please confirm your email address to complete the registration.</p>
   </div>
 
-  </body>
+  </body> {% endcomment %}
+  <body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;"></body>
+<div class= 'container' style = 'margin-top:100px;'>
+  <div class = 'row justify-content-center'>
+    <div class = 'col-md-4'></div>
+    <div class="col-md-3" style='background-color:#C4C4C4; opacity:0.8;'>
+            {% if form.errors %}
+                <p> Password or Username is incorrect </p>
+            {% endif %}
+        </div>
+    <div class = 'col-md-5'></div>
+  </div>
+  <div class ='row justify-content-center'>
+    <div class= 'col-md-4'></div>
+        <div class="col-md-3" style= 'padding-right:20px;background-color:#C4C4C4; opacity:0.8;'>
+            <p class= 'text-center'>Please confirm your email address to complete the registration.</p>
+        </div>
+      <div class='col-md-5'></div>
+    </div>
+  </div> 
+</body>
 </html>
 {% endblock %}

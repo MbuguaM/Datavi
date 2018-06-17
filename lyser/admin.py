@@ -1,9 +1,5 @@
 from django.contrib.gis import admin
-<<<<<<< HEAD
-from .models import Unit, counties,User_prof
-=======
-from .models import Unit, counties,WordBorder
->>>>>>> 8214f55aaf0a604ff0261cf0738e0a95cc72d92c
+from .models import Unit, counties,WordBorder, User_prof
 from leaflet.admin import LeafletGeoAdmin
 
 # Register your models here.
@@ -12,8 +8,4 @@ from leaflet.admin import LeafletGeoAdmin
 
 admin.site.register(Unit, LeafletGeoAdmin)
 admin.site.register(counties, LeafletGeoAdmin)
-<<<<<<< HEAD
-admin.site.register(User_prof)
-=======
 admin.site.register(WordBorder, LeafletGeoAdmin)
->>>>>>> 8214f55aaf0a604ff0261cf0738e0a95cc72d92c

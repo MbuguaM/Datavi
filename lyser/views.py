@@ -1,19 +1,16 @@
-from django.shortcuts import render
-<<<<<<< HEAD
+from django.shortcuts import render,redirect, HttpResponseRedirect
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
-from .tokens import account_activation_token
-from .models import counties
-=======
 from .models import counties, WordBorder
->>>>>>> 8214f55aaf0a604ff0261cf0738e0a95cc72d92c
 from django.core.serializers import serialize
 from django.http import HttpResponse
 from . import views
 from .forms import SignUpForm
 from django.contrib.auth import login
+from .tokens import account_activation_token
+from django.contrib.auth.models import User
 # decorator
 from django.contrib.auth.decorators import login_required
 
@@ -27,12 +24,14 @@ def more_about(request):
     """ displaying more inforamtion about us """
     return render(request, 'app_temp/us.html')
 
+def stories(request):
+    """displaying map projection"""
+    return render(request, 'app_temp/stories.html')
 
 def projection(request):
     """displaying map projection"""
     return render(request, 'app_temp/projection.html')
 
-<<<<<<< HEAD
 
 @login_required(login_url='/accounts/login/')
 def your_projection(request):
@@ -53,7 +52,7 @@ def signup(request):
             message = render_to_string('registration/account_activation_email.html', {
                 'user': user,
                 'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
                 'token': account_activation_token.make_token(user),
             })
             user.email_user(subject, message)
@@ -66,7 +65,7 @@ def signup(request):
 def account_activation_sent(request):
     """ view function to redirect user to the user registration complete page """
     current_user = request.user
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         return HttpResponseRedirect('/')
     return render(request, 'registration/account_activation_complete.html')
 
@@ -83,10 +82,9 @@ def activate(request, uidb64, token):
         user.profile.email_confirmed = True
         user.save()
         login(request, user)
-        return redirect('home')
+        return redirect('landing')
     else:
         return render(request, 'registration/account_activation_invalid.html')
-=======
 def documentation(request):
     """displaying detailed map infomation"""
     return render(request, 'app_temp/Documentation.html')
@@ -102,4 +100,3 @@ def world_borders(request):
     """ fetching the world borders data"""
     world_borders = serialize('geojson',WordBorder.objects.all())
     return HttpResponse(world_borders, content_type = 'json')
->>>>>>> 8214f55aaf0a604ff0261cf0738e0a95cc72d92c
