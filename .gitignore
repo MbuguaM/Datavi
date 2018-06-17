@@ -1,7 +1,3 @@
 virutal/
 .vscode/
-<<<<<<< HEAD
-*.pyc
-=======
 .env
->>>>>>> 211adc3daf2c0983871a99b34393b8470d329d7b
