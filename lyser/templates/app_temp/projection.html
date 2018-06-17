@@ -2,11 +2,7 @@
 {% load leaflet_tags %}
 {% block content %}
 {{block.super}}
-  <div class = "container" style="margin-top:8%;">
-      <div class = 'row'>
-          <div class = "col-sm-0.5"></div>
-          <div class = "col-md-11">
-              <script type = "text/javascript">
+<script type = "text/javascript">
                 function our_layer(map, options){
                     
                     console.log(options)
@@ -62,7 +58,12 @@
                    
                 };
               </script>
-              {% leaflet_map 'gis' callback="window.our_layer"%}
+  <div class = "container" style="margin-top:20px;">
+      <div class = 'row'>
+          <div class = "col-sm-0.5"></div>
+          <div class = "col-md-11">
+              <h2 class = 'text-center'> Map</h2>
+            {% leaflet_map 'gis' callback="window.our_layer"%}
           </div>
           <div class = "col-sm-0.5"></div>
       </div>
