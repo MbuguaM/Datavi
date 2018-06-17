@@ -1,0 +1,46 @@
+{% extends 'app_temp/base.html' %}
+{% load leaflet_tags %}
+{% block content %}
+{% load static %}
+{{block.super}}
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;">
+
+    <div class="container" >
+      <h1 class="text-center" style="font-family: 'Rosarivo', serif;font-size: 48px; margin-top:120px;border-bottom:1px solid #000000;margin-left:200px; margin-right:200px;">Welcome to Data-X</h1><br>
+    </div>
+
+    <div class="container-fluid" style="background-color:#C4C4C4; height: 180px;margin-top:8px; margin-left:150px; margin-right:150px; opacity:0.9;">
+      <p class="text-center" style="font-family: 'Rosarivo', serif; font-size:20px;margin-top:20px;margin-bottom:20px">a picture is worth a thousand words</p>
+      <p class="text-center" style="margin-top:40px;font-family: 'Rosarivo',serif; font-size:24px; ">we encourage you to explore learn by visualizing data </p>
+      <p class="text-center" style="font-family: 'Rosarivo', serif; font-size:24px;">in a whole new way</p>
+    </div>
+
+    <div class="footer" style="margin-bottom:120px; padding-top:30px;">
+      <h3 class="text-center" style="font-family: 'Rosarivo', serif; font-size:36px;border-bottom:1px solid #333333; margin-left:300px;margin-right:300px;">Explore</h3>
+        <br>
+      <div class="row">
+
+        <div class="col-md-6">
+          <p class="text-center" style="font-family: 'Rosarivo', serif; font-size:24px; border-bottom:1px solid #333333; margin-left: 414px;
+">Our projections</p>
+        </div>
+
+        <div class="col-md-6">
+          <a href=" {% url 'your_projection'%} ">
+          <p class="text-center" style="font-family: 'Rosarivo', serif; font-size:24px; border-bottom:1px solid #333333; margin-right:400px; color:#333333;p"> Your projections</p>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>
+{% endblock %}

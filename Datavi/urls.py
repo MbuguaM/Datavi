@@ -14,11 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib.gis import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.contrib.auth import views
+from lyser import views as auth_views
+from lyser.forms import LoginForm
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('lyser.urls'))
+    path('', include('lyser.urls')),
+    # entry and exit control urls
+    re_path(r'^accounts/login/$', views.LoginView.as_view(template_name = 'registration/login.html', authentication_form = LoginForm,), name='login'),
+    re_path(r'^signup/$', auth_views.signup, name='signup'),
+    re_path(r'^logout/$', views.logout, {'next_page': 'login'}, name='logout'),
+    # mail confimation urls
+    re_path(r'^account_activation_sent/$', auth_views.account_activation_sent, name='account_activation_sent'),
+    re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',auth_views.activate, name='activate'),
 ]
