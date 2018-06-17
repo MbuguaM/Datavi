@@ -1,37 +1,71 @@
 {% extends 'app_temp/base.html' %}
 {% load leaflet_tags %}
 {% block content %}
-{% load static %}
 {{block.super}}
+<script type = "text/javascript">
+                function our_layer(map, options){
+                    
+                    console.log(options)
+                    console.log(map)
+                    var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    });
+                    var OpenTopoMap = L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+                    });
+                    var Grayscale = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                      });
+                    
+                                    
+                    // importing the world data set
+                    var world_data = "{% url 'world_borders'%}"
+                    var world_dataset =new L.GeoJSON.AJAX(world_data,{
+                        onEachFeature: function(feature,layer){
+                            layer.bindPopup(feature.properties.name.toString());
+                            
+                        }
+                    }).addTo(map);
 
-<html>
+                    // importing the kenya counties infomation 
+                    var data = "{% url 'county_data' %}";
+                    var datasets =new L.GeoJSON.AJAX(data,{
+                        onEachFeature: function(feature,layer){
+                            layer.bindPopup(feature.properties.county.toString());
+                            
+                        }
+                    }).addTo(map);
 
-<head>
-  <meta charset="utf-8">
-  <title></title>
-</head>
+                    //map display variables
+                    var baseLayers = {
+                        'OSM': osm, 
+                        'OpenTopoMap': OpenTopoMap,
+                        'GrayScale': Grayscale,
+                    };
 
-<body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;">
-
-  <div class="container" style="margin-top:8%;">
-    <div class='row'>
-      <div class="col-sm-0.5"></div>
-      <div class="col-md-11">
-        <script type="text/javascript">
-          function our_layer(map, options) {
-            var data = "{% url 'county_data' %}"
-            var datasets = new L.geoJSON(data.responseJSON);
-            datasets.addTo(map);
-          }
-        </script>
-        {% leaflet_map 'gis' callback="window.our_layer"%}
+                    var groupedOverlays = {
+                        "Layers": {
+                          "world_borders": world_dataset,
+                          "Counties": datasets,
+                          
+                        },
+                      };
+                      
+                    L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
+                   
+                };
+              </script>
+  <div class = "container" style="margin-top:20px;">
+      <div class = 'row'>
+          <div class = "col-sm-0.5"></div>
+          <div class = "col-md-11">
+              <h2 class = 'text-center'> Map</h2>
+            {% leaflet_map 'gis' callback="window.our_layer"%}
+          </div>
+          <div class = "col-sm-0.5"></div>
       </div>
-      <div class="col-sm-0.5"></div>
-    </div>
   </div>
-
-  {% endblock %}
-  <!DOCTYPE html>
-</body>
-
-</html>
+{% endblock %}

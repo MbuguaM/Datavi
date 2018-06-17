@@ -1,0 +1,54 @@
+{% extends 'app_temp/base.html' %}
+{% load leaflet_tags %}
+{% block content %}
+{% load bootstrap3 %}
+{{block.super}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div class="container">
+      <h3 class="text-center" style="font-size:36px; font-family: 'Rosarivo', serif;border-bottom:1px solid #333333;margin-left:300px;margin-right:300px; margin-top:120px;">Map Details</h3>
+      <div class="body" style="background-color:#C4C4C4;height:185px;margin-left:150px;margin-right:150px;">
+        <p class="text-center" style="font-family: 'Rosarivo', serif;margin-top:50px;padding-top:20px;">We are Data-X cruew, we create awareness to the society on the effects </p>
+        <p class="text-center" style="font-family: 'Rosarivo', serif;">of corruption to the society and economy of different countries.</p><br>
+        <p class="text-center" style="font-family: 'Rosarivo', serif;">After doing our research we found that citizens lack platform to air</p>
+        <p class="text-center" style="font-family: 'Rosarivo', serif;">their views on how to fight corruption</p>
+      </div>
+
+    </div>
+
+    <div class="container-fluid">
+      <h3 class="text-center" style="font-size:36px; font-family: 'Rosarivo', serif;border-bottom:1px solid #333333;margin-left:400px;margin-right:400px;margin-top:100px;">What we do</h3>
+      <p class="text-center" style="font-family: 'Rosarivo', serif;background-color:#C4C4C4;height:90px;margin-left:243px;margin-right:243px;margin-top:40px;padding-top:20px;">We create a platform for information analysis as well as giving projections</p>
+    </div>
+
+      <h3 class="text-center" style="font-size:36px; font-family: 'Rosarivo', serif;border-bottom:1px solid #333333;margin-left:450px;margin-right:450px;">Contacts</h3>
+    <div class="container-fluid" style="background-color:#C4C4C4;height:250px; margin-left:255px;margin-right:255px;margin-top:30px;">
+
+      <div class="row">
+
+        <div class="col-md-8" style="margin-top:30px;padding-top:40px;">
+          <p class="text-center" style="margin-left:18px; font-family: 'Rosarivo', serif;">Mobile:0724817123</p>
+          <p class="text-center" style="margin-left:105px; font-family: 'Rosarivo', serif;">Email-adress:data-x@gmail.com</p>
+          <p class="text-center" style="margin-left:30px; font-family: 'Rosarivo', serif;">Location:Upper Hill</p>
+
+        </div>
+
+        <div class="col-md-4" style"margin-bottom:20px;">
+          <img src="./static/image/fb.png" alt="fb" height="50px" style=""><br>
+          <img src="./static/image/insta.png" alt="insta" height="50px"><br>
+          <img src="./static/image/Twitter.png" alt="twitter" height="50px">
+        </div>
+
+      </div>
+
+
+    </div>
+  </body>
+</html>
+{% endblock %}

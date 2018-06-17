@@ -1,10 +1,14 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 from .tokens import account_activation_token
 from .models import counties
+=======
+from .models import counties, WordBorder
+>>>>>>> 8214f55aaf0a604ff0261cf0738e0a95cc72d92c
 from django.core.serializers import serialize
 from django.http import HttpResponse
 from . import views
@@ -19,15 +23,6 @@ def landing(request):
     """ models displaying the main landing page """
     return render (request, 'app_temp/home.html')
 
-
-def county_data(request):
-    """ fetching the county data """
-    county = serialize('geojson',counties.objects.all())
-
-    return render(county, content_type = 'json')
-
-
-
 def more_about(request):
     """ displaying more inforamtion about us """
     return render(request, 'app_temp/us.html')
@@ -37,6 +32,7 @@ def projection(request):
     """displaying map projection"""
     return render(request, 'app_temp/projection.html')
 
+<<<<<<< HEAD
 
 @login_required(login_url='/accounts/login/')
 def your_projection(request):
@@ -90,3 +86,20 @@ def activate(request, uidb64, token):
         return redirect('home')
     else:
         return render(request, 'registration/account_activation_invalid.html')
+=======
+def documentation(request):
+    """displaying detailed map infomation"""
+    return render(request, 'app_temp/Documentation.html')
+
+
+# Provider urls ( urls for providing geometric data)
+def county_data(request):
+    """ fetching the county data """
+    county = serialize('geojson',counties.objects.all())
+    return HttpResponse(county, content_type = 'json')
+
+def world_borders(request):
+    """ fetching the world borders data"""
+    world_borders = serialize('geojson',WordBorder.objects.all())
+    return HttpResponse(world_borders, content_type = 'json')
+>>>>>>> 8214f55aaf0a604ff0261cf0738e0a95cc72d92c
