@@ -31,11 +31,10 @@ class counties(models.Model):
 
 class User_prof(models.Model):
     """ model that hold infomation on the user """
-    user = models.OneToOneField(User, on_delete =models.CASCADE, related_name='profile')
-    mail_confirm = models.BooleanField(default = False)
+    user = models.OneToOneField(User, on_delete =models.CASCADE,null= True, related_name='profile')
     
-    def __str__(self):
-        return self.user
+    mail_confirm = models.BooleanField(default = False)
+
 
     def delete(self):
         """ redifining the mail_confirm field in the user_prof"""
