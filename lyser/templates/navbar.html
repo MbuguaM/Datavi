@@ -15,6 +15,7 @@
     <style media="screen">
       ul a:hover{
         text-decoration: none;
+        color:orangered;
       }
       ul a {
         margin-left:30px;
@@ -25,6 +26,7 @@
         border-right:0px;
         border-left:0px;
         border-top:0px;
+        
         /* background-color:#333333; */
       }
       div .new{
@@ -47,9 +49,14 @@
 
     <input type = "text" name = "search" style="background-color: #333333; border-bottom:1px solid white; color:white; border-top:0px; border-right:0px; border-left:0px;"/>
   </a>
-    <a href="{% url 'documentation' %}" class="home"  style="float:right;  border-bottom :1px solid white;  color:white;">Documentation</a>
+    
+    {% if user.is_authenticated %}
+    <a href="{% url 'logout'%}"  class="proj"  style="float:right;  border-bottom :1px solid white;  color:white;">logout</a>
     <a href="{% url 'projection'%}"  class="proj"  style="float:right;  border-bottom :1px solid white;  color:white;">Projections</a>
+    <a href="{% url 'documentation' %}" class="home"  style="float:right;  border-bottom :1px solid white;  color:white;">Documentation</a>
+    {% endif %}
     <a href="{% url 'more_about' %}" class="we"  style="float:right;  border-bottom :1px solid white;  color:white;">Us</a>
+    <a href="{% url 'stories'%}"  class="proj"  style="float:right;  border-bottom :1px solid white;  color:white;">Stories</a>
     <a href="{% url 'landing' %}" class="home"  style="float:right;  border-bottom :1px solid white;  color:white;">Home</a>
    
 
