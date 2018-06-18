@@ -161,9 +161,12 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 LOGIN_REDIRECT_URL = ('/')
 # LOGIN_URL = ('/login')
-GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH')
-GEOS_LIBRARY_PATH = os.environ.get('GEOS_LIBRARY_PATH')
+# GDAL_LIBRARY_PATH = os.environ.get('GDAL_LIBRARY_PATH')
+# GEOS_LIBRARY_PATH = os.environ.get('GEOS_LIBRARY_PATH')
 # GDAL_LIBRARY_PATH='/app/.heroku/vendor/lib/libgdal.so'
 # GEOS_LIBRARY_PATH='/app/.heroku/vendor/lib/libgeos_c.so'
+GEOS_LIBRARY_PATH = '/app/.geodjango/geos/lib/libgeos_c.so'
+
+GDAL_LIBRARY_PATH = '/app/.geodjango/gdal/lib/libgdal.so'
 import django_heroku
 django_heroku.settings(locals())
