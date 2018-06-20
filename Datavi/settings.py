@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import django_heroku
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q(x^rtjm8ldnz_@+31_&lz8^i55!%+jyod_=zjh$e&6yql69mo'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'leaflet',
     'lyser',
-    'bootstrap4',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -128,14 +130,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'staticfiles'),
+    os.path.join(BASE_DIR, 'static/'),
 ]
-print(STATIC_ROOT)
+# print(STATIC_ROOT)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -143,8 +144,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER':(-.023,36.87),
     'DEFAULT_ZOOM': 5,
-    'MAX_ZOOM': 20, 
-    'MIN_ZOOM':3, 
-    'SCALE':'both', 
+    'MAX_ZOOM': 20,
+    'MIN_ZOOM':2,
+    'SCALE':'both',
     'ATTRIBUTION_PREFIX':'Mbugua.M@DATAV'
 }
+ # email configurations
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+
+LOGIN_REDIRECT_URL = ('/')
+# LOGIN_URL = ('/login')
+django_heroku.settings(locals())

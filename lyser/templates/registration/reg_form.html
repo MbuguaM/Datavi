@@ -1,0 +1,51 @@
+{%extends 'registration/base.html'%}
+{% load bootstrap3 %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  {% comment %} <body>
+    <div class="container">
+    <h1 style="color:orange;">Signup</h1>
+
+     <form  action="{%url 'signup' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+
+        {% bootstrap_form form%}
+        <input type="submit" class="btn btn-warning btn-lg" value="sign up">
+      </form>
+
+
+    </div>
+  </body> {% endcomment %}
+  <body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;"></body>
+<div class= 'container' style = 'margin-top:100px;'>
+  <div class ='row justify-content-center'>
+    <div class= 'col-md-4'></div>
+        <div class="col-md-3" style= 'padding-right:20px;background-color:#C4C4C4; opacity:0.8;'>
+            <div class="card" style=" border-radius: 10% margin-right:0px;">
+                <div class="card-body">
+                    <h3 class="card-title text-center" style="font-family: 'Pacifico', cursive;">Sign up</h3><br>
+                    <form action="{%url 'signup' %}" method="post">
+                        {% csrf_token %} {% bootstrap_form form layout='inline'%}
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-block" value="submit">
+                        </div>
+            
+                      
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+      <div class='col-md-5'></div>
+    </div>
+  </div> 
+</body>
+</html>
+{% endblock %}
