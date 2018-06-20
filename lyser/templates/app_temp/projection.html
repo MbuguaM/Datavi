@@ -5,16 +5,17 @@
 {% load static %}
 {{block.super}}
 
-  
+
 
   <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title></title>
     <script type = "text/javascript">
                 function our_layer(map, options){
-                    
+
                     console.log(options)
                     console.log(map)
                     var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -29,29 +30,29 @@
                         maxZoom: 19,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                       });
-                    
-                                    
+
+
                     // importing the world data set
                     var world_data = "{% url 'world_borders'%}"
                     var world_dataset =new L.GeoJSON.AJAX(world_data,{
                         onEachFeature: function(feature,layer){
                             layer.bindPopup(feature.properties.name.toString());
-                            
+
                         }
                     }).addTo(map);
 
-                    // importing the kenya counties infomation 
+                    // importing the kenya counties infomation
                     var data = "{% url 'county_data' %}";
                     var datasets =new L.GeoJSON.AJAX(data,{
                         onEachFeature: function(feature,layer){
                             layer.bindPopup(feature.properties.county.toString());
-                            
+
                         }
                     }).addTo(map);
 
                     //map display variables
                     var baseLayers = {
-                        'OSM': osm, 
+                        'OSM': osm,
                         'OpenTopoMap': OpenTopoMap,
                         'GrayScale': Grayscale,
                     };
@@ -60,12 +61,12 @@
                         "Layers": {
                           "world_borders": world_dataset,
                           "Counties": datasets,
-                          
+
                         },
                       };
-                      
+
                     L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
-                   
+
                 };
               </script>
   </head>
@@ -74,7 +75,7 @@
         <div class = 'row'>
             <div class = "col-md-1"></div>
             <div class = "col-md-10">
-                <h2 class = 'text-center'> Map</h2>
+                <h2 class = 'text-center' style="color:#F1A91F;"> Map</h2>
             {% leaflet_map 'gis' callback="window.our_layer"%}
             </div>
             <div class = "col-md-1"></div>
