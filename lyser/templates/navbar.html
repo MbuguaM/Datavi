@@ -26,7 +26,7 @@
         border-right:0px;
         border-left:0px;
         border-top:0px;
-        
+
         /* background-color:#333333; */
       }
       div .new{
@@ -41,24 +41,24 @@
 
   <ul>
     <!-- <a href="#" class="data" style="padding:35px;">Data-X</a> -->
-    <img src="{% static 'image/logo.png'%}" alt="logo" height="105px" width="230px">
+    <img src="{% static 'image/Logo.png'%}" alt="logo" height="350px" width="250px">
     <!-- border-bottom :1px solid; -->
     <a href="#" type = submit style="float:right; ">
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" viewBox="0 0 24 24" fill="none" stroke="#F1A91F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line>
       </svg>
 
-    <input type = "text" name = "search" style="background-color: #333333; border-bottom:1px solid white; color:white; border-top:0px; border-right:0px; border-left:0px;"/>
+    <input type = "text" name = "search" style="background-color: #333333; border-bottom:1px solid #F1A91F; color:#F1A91F; border-top:0px; border-right:0px; border-left:0px;"/>
   </a>
-    
+
     {% if user.is_authenticated %}
-    <a href="{% url 'logout'%}"  class="proj"  style="float:right;  border-bottom :1px solid white;  color:white;">logout</a>
-    <a href="{% url 'projection'%}"  class="proj"  style="float:right;  border-bottom :1px solid white;  color:white;">Projections</a>
-    <a href="{% url 'documentation' %}" class="home"  style="float:right;  border-bottom :1px solid white;  color:white;">Documentation</a>
+    <a href="{% url 'logout'%}"  class="proj"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">logout</a>
+    <a href="{% url 'projection'%}"  class="proj"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">Projections</a>
+    <a href="{% url 'documentation' %}" class="home"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">Documentation</a>
     {% endif %}
-    <a href="{% url 'more_about' %}" class="we"  style="float:right;  border-bottom :1px solid white;  color:white;">Us</a>
-    <a href="{% url 'stories'%}"  class="proj"  style="float:right;  border-bottom :1px solid white;  color:white;">Stories</a>
-    <a href="{% url 'landing' %}" class="home"  style="float:right;  border-bottom :1px solid white;  color:white;">Home</a>
-   
+    <a href="{% url 'more_about' %}" class="we"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">Us</a>
+    <a href="{% url 'stories'%}"  class="proj"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">Stories</a>
+    <a href="{% url 'landing' %}" class="home"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">Home</a>
+
 
   </ul>
 
