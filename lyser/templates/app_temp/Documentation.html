@@ -10,8 +10,9 @@
 <!-- Start styles -->
 <style>
     body{
-      background-image:url({% static '/image/wallpp.jpg'%});
-      backgroud-size:cover;
+      background-image:url({% static '/image/wallpp.jpg' %});
+      /* backgroud-size: cover; */
+      background-attachment: fixed;
     }
 
     .contra{
@@ -33,6 +34,10 @@
       padding-top: 2%;
       text-align: center;
 
+    }
+    h4{
+      font-family: 'Rosarivo', serif;
+      font-size: 160%;
     }
     .container-details{
       margin: 5%;
@@ -76,13 +81,34 @@
                       <li>Due to single colour intensity, the map is relatively fast to understand</li>
                     </ul>
               </p>
+          </div>
 
+          <hr>
+
+          <div class="container-details">
+            <h2>Depandancies used:</h2><br>
+
+              <h4>Numpy</h4>
+                <p style="padding-bottom: 2%;">
+                  NumPy is the package in Python we used for Scientific Computing. NumPy package is used to perform different operations. The ndarray (NumPy Array) is a multidimensional array used to store values of same datatype. These arrays are indexed just like Sequences, starts with zero.
+                </p>
+              
+              <h4>Scikit-learn</h4>
+                <p style="padding-bottom: 2%;">
+                  The software, Data Science Studio (DSS), enables users to create data services that combine ETL (Extract,Transform, Load) with Machine Learning. Our Machine Learning module integrates many scikit-learn algorithms. The scikit-learn library is a perfect integration with DSS because it offers algorithms for virtually all business cases.
+                </p>
+
+              <h4>Matplotlib</h4>
+                <p style="padding-bottom: 2%;">
+                Matplotlib is a plotting library for the Python programming language and its numerical mathematics extension NumPy. It provides
+                an object-oriented API for embedding plots into applications using general-purpose GUI toolkits like Tkinter, wxPython, Qt,and GTK+.
+                </p>
 
 
           </div>
+
+        
       </div>
-
-
     </div>
   </body>
 </html>
