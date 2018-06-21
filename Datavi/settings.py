@@ -156,8 +156,8 @@ EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
-# DATABASES['default'] = dj_database_url.config()
-# DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+DATABASES['default'] = dj_database_url.config(default ='postgis://USER:PASSWORD@HOST:NAME')
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 LOGIN_REDIRECT_URL = ('/')
 # LOGIN_URL = ('/login')
@@ -167,5 +167,6 @@ LOGIN_REDIRECT_URL = ('/')
 # GEOS_LIBRARY_PATH='/app/.heroku/vendor/lib/libgeos_c.so'
 GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
 GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
+
 import django_heroku
 django_heroku.settings(locals())
