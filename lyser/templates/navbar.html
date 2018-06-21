@@ -54,6 +54,8 @@
     <a href="{% url 'logout'%}"  class="proj"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">logout</a>
     <a href="{% url 'projection'%}"  class="proj"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">Projections</a>
     <a href="{% url 'documentation' %}" class="home"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">Documentation</a>
+    {% else %}
+    <a href="{% url 'login'%}"  class="proj"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">login</a>
     {% endif %}
     <a href="{% url 'more_about' %}" class="we"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">Us</a>
     <a href="{% url 'stories'%}"  class="proj"  style="float:right;  border-bottom :1px solid #F1A91F;  color:#F1A91F;">Stories</a>

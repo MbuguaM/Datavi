@@ -85,8 +85,8 @@ DATABASES = {
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'lyser',
-        'USER': 'ramza',
-        'PASSWORD': 'ramza123',
+        'USER': 'mbugua',
+        'PASSWORD': 'morem',
         'HOST':'',
         'PORT':'5432'
     }
