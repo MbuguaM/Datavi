@@ -11,13 +11,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-<<<<<<< HEAD
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title></title>
-    <script type = "text/javascript">
-                function our_layer(map, options){
-=======
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <script type = "text/javascript">
@@ -25,7 +18,6 @@
 
                     console.log(options)
                     console.log(map)
->>>>>>> c31323ad9649cae676581f607450687766c038a6
                     var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         maxZoom: 19,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -75,23 +67,7 @@
 
                     L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
 
-<<<<<<< HEAD
-                    // Call the getContainer routine.
-                    //var htmlObject = control.getContainer();
-                    // Get the desired parent node.
-                   // var a = document.getElementById('new-parent');
-
-                    // Finally append that node to the new parent.
-                    //function setParent(el, newParent)
-                   // {
-                     //   newParent.appendChild(el);
-                    //}
-                    //setParent(htmlObject, a);
-                   
-                //};
-=======
                 };
->>>>>>> c31323ad9649cae676581f607450687766c038a6
               </script>
   </head>
   <body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;">

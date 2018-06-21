@@ -83,12 +83,11 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'lyser',
-        'USER': 'mbugua',
-        'PASSWORD': 'morem',
-        'HOST':'',
-        'PORT':'5432'
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD':config('DB_PASSWORD'),
+        'PORT':config('DB_PORT')
     }
 }
 
@@ -156,8 +155,8 @@ EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
-DATABASES['default'] = dj_database_url.config(default ='postgis://USER:PASSWORD@HOST:NAME')
-DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+# DATABASES['default'] = dj_database_url.config()
+# DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 LOGIN_REDIRECT_URL = ('/')
 # LOGIN_URL = ('/login')
