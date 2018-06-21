@@ -1,29 +1,57 @@
-{% extends 'app_temp/base.html' %}
-{% load leaflet_tags %}
-{% block content %}
-{% load bootstrap3 %}
-{% load static %}
-{{block.super}}
+{% extends 'app_temp/base.html' %}{% load leaflet_tags %}{% block content %}{% load bootstrap3 %}{% load static %}{{block.super}}
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>DataX | Documentation</title>
-  </head>
-  <body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DataX | Documentation</title>
+</head>
+<!-- Start styles -->
+<style>
+    body{
+      background-image:url({% static '/image/wallpp.jpg'%});
+      backgroud-size:cover;
+    }
 
+    .contra{
+      background-color:#C4C4C4;
+      /* height:700px;
+      margin-left:50px;
+      margin-right:50px; */
+      padding-bottom: 5%;
+      /* padding: 2%; */
+      opacity:0.8;
+    }
+    
+    h3{
+      font-size:260%;
+      font-family: 'Rosarivo', serif;
+      /* margin-left:300px;
+      margin-right:300px;
+      padding-top:20px;*/
+      padding-top: 2%;
+      text-align: center;
+
+    }
+    .container-details{
+      margin: 5%;
+    }
+</style>
+<!-- end of styles -->
+  <body>
     <div class="container">
-     
-      <div class="body" style="background-color:#C4C4C4;height:700px;margin-left:50px;margin-right:50px; opacity:0.8;">
-        <h3 class="text-center" style="font-size:36px; font-family: 'Rosarivo', serif;border-bottom:1px solid #333333;margin-left:300px;margin-right:300px;padding-top:20px; margin-top:20px;">Map Details</h3>
+      <div class="contra">
+        <h3>Map Details</h3> 
+        <hr style="margin-left: 30%; margin-right: 30%;">
         
-            <div class="container-details" style="margin: 5%;">
+            <div class="container-details">
 
               <h2>OSM Map</h2>  
                 <p> 
                   The OpenStreetMap License allows free access to map images and all of our underlying map data.It aims to promote new and interesting uses of this data. Why an open-content map?
                     <ul>
-                      <li>Clear Simple VIsualization of data</li>
+                      <li>Clear Simple Visualization of data</li>
                       <li>Easy interpratation of data`</li>
                     </ul>
 
@@ -31,7 +59,13 @@
 
               <h2>OpenTopoMap</h2>
               <p>
-                  OpenTopoMap is a free, topographic map generated from the data in the OpenStreetMap and SRTM elevation data. The card style is based on the official maps and is based on good readability through high contrast and balanced signatures.
+                  OpenTopoMap is a free, topographic map generated from the data in the OpenStreetMap and SRTM elevation data. The card style is based on the official maps and is based on good readability through high contrast and balanced signatures. Why an an OpenTopoMap ?
+
+                  <ul>
+                    <li>Have good visual appeal</li>
+                    <li>Easy to interprate and has a legend to refer to</li>
+                    <li>Fast way to visualise and understand</li>
+                  </ul>
               </p>
               
               <h2>GreyScale</h2>
@@ -39,6 +73,7 @@
                   This is a map in which the value of each pixel is a single sample representing only an amount of light, that is, it carries only intensity information. Images of this sort, also known as black-and-white or monochrome, are composed exclusively of shades of gray, varying from black at the weakest intensity to white at the strongest. It's advantage is:
                     <ul>
                       <li>It is fast and accurate</li>
+                      <li>Due to single colour intensity, the map is relatively fast to understand</li>
                     </ul>
               </p>
 
