@@ -6,14 +6,17 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 
 # Create your models here
+
+
 class Unit(models.Model):
     """ model that saves unit data on a project """
-    name = models.CharField(max_length = 20)
-    location = gis_models.PointField(srid = 4326)
+    name = models.CharField(max_length=20)
+    location = gis_models.PointField(srid=4326)
     objects = GeoManager()
 
     def __str__(self):
         return self.name
+
 
 class counties(models.Model):
     objectid = models.IntegerField()
@@ -24,16 +27,18 @@ class counties(models.Model):
     county = models.CharField(max_length=20)
     shape_leng = models.FloatField()
     shape_area = models.FloatField()
-    geom =gis_models.MultiPolygonField(srid=4326)
+    geom = gis_models.MultiPolygonField(srid=4326)
 
     def __str__(self):
         return self.county
 
+
 class User_prof(models.Model):
     """ model that hold infomation on the user """
-    user = models.OneToOneField(User, on_delete =models.CASCADE, related_name='profile')
-    mail_confirm = models.BooleanField(default = False)
-    
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name='profile')
+    mail_confirm = models.BooleanField(default=False)
+
     def __str__(self):
         return self.user
 
@@ -42,11 +47,13 @@ class User_prof(models.Model):
         self.mail_confirm = False
         self.save()
 
+
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
         User_prof.objects.create(user=instance)
     instance.profile.save()
+
 
 class WordBorder(models.Model):
     fips = models.CharField(max_length=2)

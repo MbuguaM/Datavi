@@ -1,4 +1,4 @@
-#!/home/rose/prodev/Datavi/virtual/bin/python
+#!/home/ramza/Documents/projects/Datavi/virtual/bin/python3.6
 from django.core import management
 
 if __name__ == "__main__":
