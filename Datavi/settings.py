@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import django_heroku
+import dj_database_url
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -164,4 +164,12 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 LOGIN_REDIRECT_URL = ('/')
 # LOGIN_URL = ('/login')
+# GDAL_LIBRARY_PATH = os.get('GDAL_LIBRARY_PATH')
+# GEOS_LIBRARY_PATH = os.get('GEOS_LIBRARY_PATH')
+# GDAL_LIBRARY_PATH='/app/.heroku/vendor/lib/libgdal.so'
+# GEOS_LIBRARY_PATH='/app/.heroku/vendor/lib/libgeos_c.so'
+GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
+GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
+
+import django_heroku
 django_heroku.settings(locals())
