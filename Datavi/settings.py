@@ -87,7 +87,6 @@ DATABASES = {
         'NAME': 'lyser',
         'USER': 'ramza',
         'PASSWORD': 'ramza123',
->>>>>>> d39848da988de515193c85de479843835aa0ef28
         'HOST':'',
         'PORT':'5432'
     }
