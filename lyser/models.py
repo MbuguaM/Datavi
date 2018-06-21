@@ -21,6 +21,7 @@ class counties(models.Model):
     perimeter = models.FloatField()
     county3_field = models.FloatField()
     county3_id = models.FloatField()
+    
     county = models.CharField(max_length=20)
     shape_leng = models.FloatField()
     shape_area = models.FloatField()

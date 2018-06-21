@@ -85,6 +85,7 @@ def activate(request, uidb64, token):
         return redirect('landing')
     else:
         return render(request, 'registration/account_activation_invalid.html')
+        
 def documentation(request):
     """displaying detailed map infomation"""
     return render(request, 'app_temp/Documentation.html')
