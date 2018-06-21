@@ -8,12 +8,13 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
   </head>
   <body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;">
 
     <div class="container" >
-      <h1 class="text-center" style="font-family: 'Rosarivo', serif;font-size: 48px; margin-top:120px;border-bottom:1px solid #000000;margin-left:200px; margin-right:200px;">Welcome to Data-X</h1><br>
+      <h1 class="text-center" style="font-family: 'Rosarivo', serif;font-size: 48px; margin-top:120px;border-bottom:1px solid #F1A91F;margin-left:300px; margin-right:300px;color:#F1A91F;">Welcome to Data-X</h1><br>
     </div>
 
     <div class="container-fluid" style="background-color:#C4C4C4; height: 180px;margin-top:8px; margin-left:150px; margin-right:150px; opacity:0.9;">
@@ -23,20 +24,18 @@
     </div>
 
     <div class="footer" style="margin-bottom:120px; padding-top:30px;">
-      <h3 class="text-center" style="font-family: 'Rosarivo', serif; font-size:36px;border-bottom:1px solid #333333; margin-left:300px;margin-right:300px;">Explore</h3>
+      <h3 class="text-center" style="font-family: 'Rosarivo', serif; font-size:36px;border-bottom:1px solid #F1A91F; margin-left:500px;margin-right:500px; color:#F1A91F;">Explore</h3>
         <br>
       <div class="row">
 
-        <div class="col-md-6">
-          <p class="text-center" style="font-family: 'Rosarivo', serif; font-size:24px; border-bottom:1px solid #333333; margin-left: 414px;
-">Our projections</p>
-        </div>
-
-        <div class="col-md-6">
+        <div class="col-md-12">
           <a href=" {% url 'your_projection'%} ">
-          <p class="text-center" style="font-family: 'Rosarivo', serif; font-size:24px; border-bottom:1px solid #333333; margin-right:400px; color:#333333;p"> Your projections</p>
+          <p class="text-center" style="font-family: 'Rosarivo', serif; font-size:24px;  margin-left: 550px;margin-right:550px;cursor:pointer;color:#F1A91F;border:1px solid #333333;border-radius:50px 50px 50px 50px; background-color:#333333;">Our projections</p></div>
+
+        <!-- <div class="col-md-6">
+          <p class="text-center" style="font-family: 'Rosarivo', serif; font-size:24px; border-bottom:1px solid #F1A91F; margin-right:400px; color:#333333;"> Your projections</p>
           </a>
-        </div>
+        </div> -->
 
       </div>
     </div>
