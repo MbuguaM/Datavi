@@ -1,9 +1,4 @@
-{% extends 'app_temp/base.html' %}
-{% load leaflet_tags %}
-{% block content %}
-{% load bootstrap3 %}
-{% load static %}
-{{block.super}}
+{% extends 'app_temp/base.html' %}{% load leaflet_tags %}{% block content %}{% load bootstrap3 %}{% load static %}{{block.super}}
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,46 +6,117 @@
     <meta charset="utf-8">
     <title>Data X | Us </title>
   </head>
-  <body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;">
+  <style>
 
-    <div class="container">
-      <h3 class="text-center" style="font-size:36px; font-family: 'Rosarivo', serif;border-bottom:1px solid #F1A91F; color:#F1A91F; margin-left:450px;margin-right:450px; margin-top:30px; ">Who we are</h3>
-      <div class="body" style="background-color:#C4C4C4;height:185px;margin-left:150px;margin-right:150px;opacity:0.8;">
-        <p class="text-center" style="font-family: 'Rosarivo', serif;margin-top:20px;padding-top:20px;">We at Data-X, provide a platform for all to visualize large datasets in a friendlier way</p>
-        <p class="text-center" style="font-family: 'Rosarivo', serif;"> Primarily using maps.</p><br>
-        <p class="text-center" style="font-family: 'Rosarivo', serif;">This is necessary to allow users to notice trends, deficiencies,</p>
-        <p class="text-center" style="font-family: 'Rosarivo', serif;"></p>
-      </div>
+    body{
+      background-image:url({% static '/image/wallpp.jpg'%});
+      backgroud-size:cover;
 
-    </div>
+    }
+    
+    h4{
+      font-size:36px;
+      font-family: 'Rosarivo', serif;
+      border-bottom:1px solid #F1A91F;
+      color:#F1A91F;
+      margin-left:20%;
+      margin-right: 20%;
+      margin-top:30px;
+      text-align: center;
 
-    <div class="container-fluid">
-      <h3 class="text-center" style="font-size:36px; font-family: 'Rosarivo', serif;border-bottom:1px solid #F1A91F; color:#F1A91F;margin-left:550px;margin-right:550px;margin-top:20px; ">What we do</h3>
-      <p class="text-center" style="font-family: 'Rosarivo', serif;background-color:#C4C4C4;height:90px;margin-left:243px;margin-right:243px;margin-top:40px;padding-top:20px;opacity:0.8;">We create a platform for information analysis as well as giving projections</p>
-    </div>
+    }
+    .container-1{
+      background-color:#C4C4C4;
+      padding-bottom: 1%;
+      margin-left:15%;
+      margin-right:15%;
+      opacity:0.8;
+    }
 
-      <h3 class="text-center" style="font-size:36px; font-family: 'Rosarivo', serif;border-bottom:1px solid #F1A91F; color:#F1A91F; margin-left:580px;margin-right:580px;">Contacts</h3>
-    <div class="container-fluid" style="background-color:#C4C4C4;height:250px; margin-left:255px;margin-right:255px;margin-top:30px; opacity:0.8;">
+    .container-2{
+      text-align: center;
+      font-family: 'Rosarivo', serif;
+      background-color:#C4C4C4;
+      padding: 2%;
+      margin-left:20%;
+      margin-right:20%;
+      margin-top:40px;
+      opacity:0.8;
+      text-align: center;
+    }
 
-      <div class="row">
+    .container-3{
+      background-color:#C4C4C4;
+      height:250px;
+      margin-left:255px;
+      margin-right:255px;
+      margin-top:30px;
+      opacity:0.8;
+      /* background-color: aquamarine; */
+    }
+    .container-3-mini{
+      /* background-color: beige; */
+      float: right;
+      padding-right: 20%;
+    }
+    .container-3-mini1{
+      float: left;
+      padding-left: 20%;
+      padding-top: 5%;
+    }
 
-        <div class="col-md-8" style="margin-top:30px;padding-top:40px;">
+    h3{
+      font-size:36px;
+      font-family: 'Rosarivo', serif;
+      border-bottom:1px solid #F1A91F;
+      color:#F1A91F;
+      margin-top:20px;
+      text-align: center;
+      margin-left:20%;
+      margin-right: 20%;
+    }
+
+    h2{
+      font-size:36px;
+      font-family: 'Rosarivo', serif;
+      border-bottom:1px solid #F1A91F;
+      color:#F1A91F;
+      margin-left:580px;
+      margin-right:580px;
+      text-align: center;
+    }
+  </style>
+  <body>
+
+    <h4>Who we are</h4>
+      <div class="container-1">
+            <p class="text-center" style="font-family: 'Rosarivo', serif;margin-top:20px;padding-top:20px;">
+              We at Data-X, provide a platform for all to visualize large datasets in a friendlier way <br><br> Primarily using maps.<br><br>This is necessary to allow users to notice trends, deficiencies.
+            </p>
+        </div>
+
+      <h3>What we do</h3>
+        <div class="container-2">
+          <p>We create a platform for information analysis as well as giving projections</p>
+        </div>
+
+      <h2>Contacts</h2>
+      <div class="container-3">
+      <div class="container-3-mini">
+        <div style="margin-top:30px;padding-top:40px;">
           <p class="text-center" style="margin-left:18px; font-family: 'Rosarivo', serif;">Mobile:0724817123</p>
           <p class="text-center" style="margin-left:105px; font-family: 'Rosarivo', serif;">Email-adress:data-x@gmail.com</p>
           <p class="text-center" style="margin-left:30px; font-family: 'Rosarivo', serif;">Location:Upper Hill</p>
 
         </div>
 
-        <div class="col-md-4" style"margin-bottom:20px;padding-top:10px;">
-          <img src="./static/image/fb.png" alt="fb" height="50px"><br>
-          <img src="./static/image/insta.png" alt="insta" height="50px"><br>
-          <img src="./static/image/Twitter.png" alt="twitter" height="50px">
-        </div>
-
       </div>
-
-
-    </div>
+          <div class="container-3-mini1" style="">
+            <img src="./static/image/fb.png" alt="fb" height="50px"><br>
+            <img src="./static/image/insta.png" alt="insta" height="50px"><br>
+            <img src="./static/image/Twitter.png" alt="twitter" height="50px">
+          </div>
+      </div>
   </body>
 </html>
 {% endblock %}
