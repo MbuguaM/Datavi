@@ -83,7 +83,21 @@
                     };
 
                     info.addTo(map);
-
+                    
+                    
+                    function read_data(feature,item,year_list){
+                            if(item.feature){
+                                for(i;i<=year_list.length();i++){
+                                     return item.feature.year_list[i]
+                                }
+                               
+                            }
+                            else{
+                                return 0
+                            }
+                        
+                    }
+                        
                     
 
                     // importing the world data set
@@ -91,7 +105,7 @@
                     var world_dataset =new L.GeoJSON.AJAX(world_data,{
                         style:function(feature){
                             return {
-                                fillColor: getColor(feature.properties.area),
+                                fillColor: getColor(feature.properties.country),
                                 weight: 2,
                                 opacity: 1,
                                 color: 'white',

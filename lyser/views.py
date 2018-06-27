@@ -43,9 +43,11 @@ def your_projection(request):
     corruption_file = './Data/csv_data/corruption_index.csv'
     countries = get_country(corruption_file)
     gdp_data = load(gdp_file)
+    gdp_list = [d for d in range(1960, 2017)]
+    corruption_list = ['2012','2013','2014','2015']
     corruption_data = yr_index_dict(countries,corruption_file)
 
-    return render(request, 'app_temp/projection.html', {'gdp':gdp_data, 'corruption':corruption_data})
+    return render(request, 'app_temp/projection.html', {'gdp':gdp_data, 'corruption':corruption_data, 'gdp_list':gdp_list, })
 
 
 def signup(request):

@@ -8,8 +8,8 @@ def load(filename):
     # with open('parsed_gdp.json', 'w') as  n :
     #     n.write(json.dumps(parsed_data))
     return parsed_data
-# filename = 'Data/csv_data/gdp.json'
+filename = 'Data/csv_data/gdp.json'
 
-# parsed_data = load(filename)
-#file starts form 1960 - 2016
-# print(parsed_data.get('Aruba').get('1995'))
+parsed_data = load(filename)
+file starts form 1960 - 2016
+print(parsed_data.get('Aruba').get('1995'))

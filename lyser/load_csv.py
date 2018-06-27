@@ -14,8 +14,6 @@ def get_country(filename):
 
 # filename = 'Data/csv_data/corruption_index.csv'
 # countries = get_country(filename)
-
-
 #getting the year and index dict
 def yr_index_dict(countries, filename):
         final = [] 
