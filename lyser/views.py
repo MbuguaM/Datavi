@@ -13,6 +13,9 @@ from .tokens import account_activation_token
 from django.contrib.auth.models import User
 # decorator
 from django.contrib.auth.decorators import login_required
+# importing economics and perception index infomation 
+from .load_csv import get_country, yr_index_dict
+from .load_json import load
 
 
 # Create your views here.
@@ -36,7 +39,13 @@ def projection(request):
 @login_required(login_url='/accounts/login/')
 def your_projection(request):
     """displaying map projection"""
-    return render(request, 'app_temp/projection.html')
+    gdp_file = './Data/csv_data/gdp.json'
+    corruption_file = './Data/csv_data/corruption_index.csv'
+    countries = get_country(corruption_file)
+    gdp_data = load(gdp_file)
+    corruption_data = yr_index_dict(countries,corruption_file)
+
+    return render(request, 'app_temp/projection.html', {'gdp':gdp_data, 'corruption':corruption_data})
 
 
 def signup(request):

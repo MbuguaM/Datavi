@@ -43,6 +43,7 @@ class User_prof(models.Model):
     def __str__(self):
         return self.user
 
+
     def delete(self):
         """ redifining the mail_confirm field in the user_prof"""
         self.mail_confirm = False

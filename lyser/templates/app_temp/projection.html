@@ -16,8 +16,6 @@
     <script type = "text/javascript">
                 function our_layer(map, options){
 
-                    console.log(options)
-                    console.log(map)
                     var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         maxZoom: 19,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -30,13 +28,90 @@
                         maxZoom: 19,
                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                       });
+                    
+                    //adding interactivity
+                    function highlightFeature(e) {
+                        var layer = e.target;
+                    
+                        layer.setStyle({
+                            weight: 5,
+                            color: '#666',
+                            dashArray: '',
+                            fillOpacity: 0.7
+                        });
+                    
+                        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+                            layer.bringToFront();
+                        }
+                        info.update(layer.feature.properties);
+                    }
 
+                   
+                    function zoomToFeature(e) {
+                        map.fitBounds(e.target.getBounds());
+                    }
+
+                    // color brewer function 
+                    function getColor(d) {
+                        return d > 10 ? '#800026' :
+                               d > 5  ? '#BD0026' :
+                               d > 3  ? '#E31A1C' :
+                               d > 1.5 ? '#FC4E2A' :
+                               d > 1  ? '#FD8D3C' :
+                               d > 0.5 ? '#FEB24C' :
+                               d > 0   ? '#FED976' :
+                                          '#FFEDA0';
+                    }
+                    var info = L.control();
+
+                    /* info.onAdd = function (map) {
+                        this._div = L.DomUtil.get('item'); // create a div with a class "info"
+                        return this._div;
+                    }; */
+
+                    info.onAdd = function (map) {
+                        this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+                        this.update();
+                        return this._div;
+                    };
+
+                    // method that we will use to update the control based on feature properties passed
+                    info.update = function (props) {
+                        this._div.innerHTML = '<h4>gdp_data</h4>' +  (props ?
+                            '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>'
+                            : 'Hover over a state');
+                    };
+
+                    info.addTo(map);
+
+                    
 
                     // importing the world data set
                     var world_data = "{% url 'world_borders'%}"
                     var world_dataset =new L.GeoJSON.AJAX(world_data,{
+                        style:function(feature){
+                            return {
+                                fillColor: getColor(feature.properties.area),
+                                weight: 2,
+                                opacity: 1,
+                                color: 'white',
+                                dashArray: '3',
+                                fillOpacity: 0.7
+                            };
+                        },
                         onEachFeature: function(feature,layer){
                             layer.bindPopup(feature.properties.name.toString());
+                            layer.on({
+                                mouseover: highlightFeature,
+                                mouseout:  function resetHighlight(e) {
+                                    world_dataset.resetStyle(e.target);
+                                    info.update();
+
+                                },
+                                click: zoomToFeature
+                            });
+                        
+                      
 
                         }
                     }).addTo(map);
@@ -44,9 +119,28 @@
                     // importing the kenya counties infomation
                     var data = "{% url 'county_data' %}";
                     var datasets =new L.GeoJSON.AJAX(data,{
+                        style:function(feature){
+                           
+                            return {
+                                fillColor: getColor(feature.properties.area),
+                                weight: 2,
+                                opacity: 1,
+                                color: 'white',
+                                dashArray: '3',
+                                fillOpacity: 0.7
+                            };
+                        },
                         onEachFeature: function(feature,layer){
                             layer.bindPopup(feature.properties.county.toString());
-
+                            layer.on({
+                                mouseover: highlightFeature,
+                                mouseout:  function resetHighlight(e) {
+                                    datasets.resetStyle(e.target);
+                                    info.update();
+                                },
+                                click: zoomToFeature
+                            });
+                        
                         }
                     }).addTo(map);
 
@@ -69,6 +163,20 @@
 
                 };
               </script>
+    <style>
+        .item {
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        .item h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+    </style>
   </head>
   <body style="background-image:url({% static '/image/wallpp.jpg'%}); backgroud-size:cover;">
     <div class = "container-fluid" style="margin-top:20px;">
@@ -79,7 +187,7 @@
             {% leaflet_map 'gis' callback="window.our_layer"%}
             </div>
             
-            <div class = "col-md-1"></div>
+            <div class = "col-md-1" id></div>
         </div>
     </div>
   </body>
