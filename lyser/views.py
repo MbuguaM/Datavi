@@ -100,3 +100,7 @@ def world_borders(request):
     """ fetching the world borders data"""
     world_borders = serialize('geojson',WordBorder.objects.all())
     return HttpResponse(world_borders, content_type = 'json')
+
+
+def test(request):
+    return render(request, 'app_temp/test.html')
