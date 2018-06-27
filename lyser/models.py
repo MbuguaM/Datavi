@@ -24,6 +24,7 @@ class counties(models.Model):
     perimeter = models.FloatField()
     county3_field = models.FloatField()
     county3_id = models.FloatField()
+    
     county = models.CharField(max_length=20)
     shape_leng = models.FloatField()
     shape_area = models.FloatField()
@@ -41,6 +42,7 @@ class User_prof(models.Model):
 
     def __str__(self):
         return self.user
+
 
     def delete(self):
         """ redifining the mail_confirm field in the user_prof"""
